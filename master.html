@@ -1,0 +1,65 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>★キラキラ星★</title>
+<style type="text/css">
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-family: "Arial Black", Gadget, sans-serif;
+	color: #555;
+}
+
+p{
+    font-size: 72px;
+}
+
+.cf {
+	zoom:1;
+	display: block;
+}
+*:first-child+html .cf{
+	display: inline-block;
+}
+
+.cf:after{
+    content: ""; 
+    display: block; 
+    clear: both;
+}
+</style>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+</head>
+
+<body>
+<br><br><br><br><br><br>
+<center>
+    	<h1>キラキラ星</h1>
+	
+    <p><span class="star1">★★★</span></p>
+	<p><span class="star2">★★★</span></p>
+	<p><span class="star3">★★★</span></p>
+
+</center>
+<script type="text/javascript">
+    
+<!--  ここに処理を追加する  -->
+$(function(){
+	window.addEventListener("devicemotion", function(evt){
+		//傾き
+		var xg = parseInt((255 + Math.abs(evt.accelerationIncludingGravity.x * 26)) / 2);
+		var yg = parseInt((255 + Math.abs(evt.accelerationIncludingGravity.y * 26)) / 2);
+        
+		$(".star1").css("color", "rgb(" + yg + "," + xg + "," + 0 + ")");
+		$(".star2").css("color", "rgb(" + 0 + "," + yg + "," + xg + ")");
+		$(".star3").css("color", "rgb(" + xg + "," + 0 + "," + yg + ")");
+     
+	}, true);
+});
+</script>
+</body>
+</html>

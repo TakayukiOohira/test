@@ -39,38 +39,17 @@ p{
 <br><br><br><br><br><br>
 <center>
     
-<h1>◇◆AZUMA◇◆</h1>
+<h1>キラキラ星</h1>
+	
+★★★
 
-    <p><span class="star5">◇◆</span></p>
-    <p><span class="star1">A</span></p>
-    <p><span class="star2">Z</span></p>
-    <p><span class="star3">U</span></p>
-    <p><span class="star4">M</span></p>
-    <p><span class="star1">A</span></p>
-    <p><span class="star5">◇◆</span></p>
-    
 </center>
 
 
 <script type="text/javascript">
 
 <!--  ここに処理を追加する  -->
-$(function(){
-    window.addEventListener("devicemotion", function(evt){
-        //傾き
-        var xg = parseInt((255 + Math.abs(evt.accelerationIncludingGravity.x * 26)) / 2);
-        var yg = parseInt((255 + Math.abs(evt.accelerationIncludingGravity.y * 26)) / 2);
-        var zg = parseInt((255 + Math.abs(evt.accelerationIncludingGravity.z * 26)) / 2);
 
-        
-        $(".star1").css("color", "rgb(" + yg +"," + xg + ","+ 0 +")");
-        $(".star2").css("color", "rgb(" + 0 +"," + yg + ","+ xg +")");
-        $(".star3").css("color", "rgb(" + xg +"," + 0 + ","+ yg +")");
-        $(".star4").css("color", "rgb(" + xg +"," + yg + ","+ yg +")");
-        $(".star5").css("color", "rgb(" + xg +"," + zg + ","+ zg +")");        
-        
-    }, true);
-    });
 </script>
 </body>
 </html>
