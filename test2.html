@@ -11,6 +11,7 @@
 
 <script>
 var alpha = 0, beta = 0, gamma = 0;             // ジャイロの値を入れる変数を3個用意
+var xg = 0, yg = 0;             // 加速度の値を入れる変数を2個用意
 
 // ジャイロセンサの値が変化したら実行される deviceorientation イベント
 window.addEventListener("deviceorientation", (dat) => {
@@ -19,17 +20,25 @@ window.addEventListener("deviceorientation", (dat) => {
     gamma = dat.gamma;  // y軸（上下）まわりの回転の角度（右に傾けるとプラス）
 });
 
+window.addEventListener("devicemotion", (evt) => {
+	//傾き
+	xg = evt.accelerationIncludingGravity.x;
+	yg = evt.accelerationIncludingGravity.y;
+});
+    
 // 指定時間ごとに繰り返し実行される setInterval(実行する内容, 間隔[ms]) タイマーを設定
 var timer = window.setInterval(() => {
     displayData();      // displayData 関数を実行
-}, 33); // 33msごとに（1秒間に約30回）
+}, 100); // 100msごとに（1秒間に約10回）
 
 // データを表示する displayData 関数
 function displayData() {
     var txt = document.getElementById("txt");   // データを表示するdiv要素の取得
     txt.innerHTML = "alpha: " + alpha + "<br>"  // x軸の値
                   + "beta:  " + beta  + "<br>"  // y軸の値
-                  + "gamma: " + gamma;          // z軸の値
+                  + "gamma: " + gamma + "<br>"  // z軸の値
+                  + "xg:  " + xg  + "<br>"  // y軸の値
+                  + "yg:  " + yg;   // y軸の値
 }
 </script>
 </body>
